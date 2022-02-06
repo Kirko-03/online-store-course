@@ -55,6 +55,9 @@ BasketDevice.belongsTo(Basket);
 Device.hasOne(BasketDevice);
 BasketDevice.belongsTo(Device);
 
+Device.hasMany(DeviceInfo,{as:'info'});
+DeviceInfo.belongsTo(Device)
+
 Device.hasMany(Rating);
 Rating.belongsTo(Device);
 
