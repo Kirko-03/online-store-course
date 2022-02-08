@@ -1,7 +1,7 @@
 import {makeAutoObservable} from 'mobx'
 
-export default class DevicesStore{
-    constructor(){
+export default class DevicesStore {
+    constructor() {
         this._types = [
             {
                 "id": 1,
@@ -20,7 +20,17 @@ export default class DevicesStore{
                 "name": "Lenovo",
                 "createdAt": "2022-02-07T15:50:45.803Z",
                 "updatedAt": "2022-02-07T15:50:45.803Z"
-            }
+            }, {
+                "id": 4,
+                "name": "Ноутбуки",
+                "createdAt": "2022-02-07T15:50:45.803Z",
+                "updatedAt": "2022-02-07T15:50:45.803Z"
+            }, {
+                "id": 5,
+                "name": "Телевизоры",
+                "createdAt": "2022-02-07T15:50:45.803Z",
+                "updatedAt": "2022-02-07T15:50:45.803Z"
+            },
         ]
         this._brands = [
             {
@@ -34,6 +44,33 @@ export default class DevicesStore{
                 "name": "Everest",
                 "createdAt": "2022-02-06T07:46:19.453Z",
                 "updatedAt": "2022-02-06T07:46:19.453Z"
+            } ,{
+                "id": 3,
+                "name": "Apple",
+                "createdAt": "2022-02-06T07:44:24.982Z",
+                "updatedAt": "2022-02-06T07:44:24.982Z"
+            },
+            {
+                "id": 4,
+                "name": "Sony",
+                "createdAt": "2022-02-06T07:46:19.453Z",
+                "updatedAt": "2022-02-06T07:46:19.453Z"
+            } ,{
+                "id": 5,
+                "name": "HP",
+                "createdAt": "2022-02-06T07:44:24.982Z",
+                "updatedAt": "2022-02-06T07:44:24.982Z"
+            },
+            {
+                "id": 6,
+                "name": "Lenovo",
+                "createdAt": "2022-02-06T07:46:19.453Z",
+                "updatedAt": "2022-02-06T07:46:19.453Z"
+            } ,{
+                "id": 7,
+                "name": "Huawei",
+                "createdAt": "2022-02-06T07:44:24.982Z",
+                "updatedAt": "2022-02-06T07:44:24.982Z"
             }
         ]
         this._devices = [
@@ -80,27 +117,88 @@ export default class DevicesStore{
                 "updatedAt": "2022-02-06T08:42:42.226Z",
                 "typeId": 1,
                 "brandId": 2
-            }
-        ] 
+            },{
+                "id": 4,
+                "name": "Atlant",
+                "price": 25000,
+                "rating": 0,
+                "img": "3ae14a25-cc0f-48cc-a54f-84521d6d67e6.jpg",
+                "createdAt": "2022-02-06T08:42:42.226Z",
+                "updatedAt": "2022-02-06T08:42:42.226Z",
+                "typeId": 1,
+                "brandId": 2
+            },{
+                "id": 4,
+                "name": "Atlant",
+                "price": 25000,
+                "rating": 0,
+                "img": "3ae14a25-cc0f-48cc-a54f-84521d6d67e6.jpg",
+                "createdAt": "2022-02-06T08:42:42.226Z",
+                "updatedAt": "2022-02-06T08:42:42.226Z",
+                "typeId": 1,
+                "brandId": 2
+            },{
+                "id": 4,
+                "name": "Atlant",
+                "price": 25000,
+                "rating": 0,
+                "img": "3ae14a25-cc0f-48cc-a54f-84521d6d67e6.jpg",
+                "createdAt": "2022-02-06T08:42:42.226Z",
+                "updatedAt": "2022-02-06T08:42:42.226Z",
+                "typeId": 1,
+                "brandId": 2
+            },{
+                "id": 4,
+                "name": "Atlant",
+                "price": 25000,
+                "rating": 0,
+                "img": "3ae14a25-cc0f-48cc-a54f-84521d6d67e6.jpg",
+                "createdAt": "2022-02-06T08:42:42.226Z",
+                "updatedAt": "2022-02-06T08:42:42.226Z",
+                "typeId": 1,
+                "brandId": 2
+            },
+            this._selectedType = {},
+            this._selectedBrand = {}
+        ]
         makeAutoObservable(this)
     }
-    setBrands(brands){
-        this._brands=brands
-    }
-    setDevices(devices){
-        this._devices=devices
-    }
-    setTypes(types){
-        this._types=types
+
+    setBrands(brands) {
+        this._brands = brands
     }
 
-    get brands(){
+    setDevices(devices) {
+        this._devices = devices
+    }
+
+    setTypes(types) {
+        this._types = types
+    }
+
+    setSelectedType(type) {
+        this._selectedType = type
+    }
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand
+    }
+
+    get brands() {
         return this._brands
     }
-    get types(){
+
+    get types() {
         return this._types
     }
-    get devices(){
+
+    get devices() {
         return this._devices
+    }
+
+    get selectedType() {
+        return this._selectedType
+    }
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }
