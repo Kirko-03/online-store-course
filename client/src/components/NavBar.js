@@ -8,17 +8,20 @@ import {useContext} from 'react'
 export const NavBar = observer(() => {
     const history = useHistory()
     const {user} = useContext(Context)
-
+    const logout = () =>{
+        user.setUser({})
+        user.setIsAuth(false)
+    }
     return <Navbar bg="dark" variant="dark">
         <Container>
             <NavLink to={SHOP_ROUTE} style={{color: 'white'}}>Monolith</NavLink>
             {user.isAuth ?
                 <Nav className="ml-auto">
                     <Button variant='outline-light' onClick={()=>history.push(ADMIN_ROUTE)} style={{marginRight:'5px'}}>Админ панель</Button>
-                    <Button variant='outline-light' onClick={() => history.push(LOGIN_ROUTE)}>Выйти</Button>
+                    <Button variant='outline-light' onClick={() => logout() }>Выйти</Button>
                 </Nav> :
                 <Nav className="ml-auto">
-                    <Button variant='outline-light' onClick={() => user.setIsAuth(true)}>Авторизация</Button>
+                    <Button variant='outline-light' onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
                 </Nav>}
 
         </Container>
