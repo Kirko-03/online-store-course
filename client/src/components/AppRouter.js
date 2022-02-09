@@ -8,11 +8,11 @@ export const  AppRouter = () => {
     return (
       <Switch>
         {user.isAuth&&authRoutes.map(({path,Component})=>
-            <Route keys={path} path={path} component={Component} exact/>
+            <Route key={path} path={path} component={Component} exact/>
         )}
         {
            publicRoutes.map(({path,Component})=>
-            <Route keys={path} path={path} component={Component} exact/>
+            <Route key={path} path={path} component={Component} exact/>
         )} 
         <Redirect to={'/shop'}/>
       </Switch>
